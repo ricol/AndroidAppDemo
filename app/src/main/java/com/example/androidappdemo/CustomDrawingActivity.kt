@@ -42,6 +42,9 @@ class CustomDrawingActivity: ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (savedInstanceState != null) {
+            Log.d(TAG, "$this->onCreate...${savedInstanceState.getString("string")}")
+        }
         setContentView(R.layout.activity_custom_drawing)
         rbLine = findViewById(R.id.rbLine)
         rbBox = findViewById(R.id.rbBox)
@@ -64,6 +67,12 @@ class CustomDrawingActivity: ComponentActivity() {
         rbLine.isChecked = viewModal.type == BoxDrawingView.Type.points
         rbBox.isChecked = viewModal.type == BoxDrawingView.Type.box
         viewDrawing.viewModel = viewModal
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d(TAG, "$this->onSaveInstanceState...")
+        outState.putString("string", "welcome to Android world!")
     }
 
     class BoxDrawingView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
