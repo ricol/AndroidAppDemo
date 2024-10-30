@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbFreeDraw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FreeDraw" />
+            <RadioButton
+                android:id="@+id/rbLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Line" />
+
+            <RadioButton
+                android:id="@+id/rbBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Box" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear" />
+
+    </LinearLayout>
+
+    <view
+        class="com.example.androidappdemo.CustomDrawingActivity$BoxDrawingView"
+        android:layout_width="wrap_content"
+        android:id="@+id/viewDrawing"
+        android:layout_height="wrap_content" />
+</LinearLayout>
