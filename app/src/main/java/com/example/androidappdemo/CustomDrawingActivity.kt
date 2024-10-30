@@ -14,6 +14,23 @@ import android.view.View
 import android.widget.Button
 import android.widget.RadioButton
 import androidx.activity.ComponentActivity
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+
+class CustomDrawingViewModel: ViewModel() {
+    var points = mutableListOf<PointF>()
+    var boxen = mutableListOf<CustomDrawingActivity.Box>()
+    var freeDrawSegments = mutableListOf<CustomDrawingActivity.Segment>()
+    var type: CustomDrawingActivity.BoxDrawingView.Type = CustomDrawingActivity.BoxDrawingView.Type.freedraw
+    override fun onCleared() {
+        super.onCleared()
+        Log.d(TAG, "$this onCleared...")
+    }
+
+    init {
+        Log.d(TAG, "$this init...")
+    }
+}
 
 class CustomDrawingActivity: ComponentActivity() {
     lateinit var rbLine: RadioButton
@@ -21,6 +38,7 @@ class CustomDrawingActivity: ComponentActivity() {
     lateinit var rbFreeDraw: RadioButton
     lateinit var btnClear: Button
     lateinit var viewDrawing: BoxDrawingView
+    val viewModal: CustomDrawingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,28 +52,28 @@ class CustomDrawingActivity: ComponentActivity() {
             viewDrawing.clear()
         }
         rbLine.setOnClickListener {
-            viewDrawing.type = BoxDrawingView.Type.points
+            viewModal.type = BoxDrawingView.Type.points
         }
         rbBox.setOnClickListener {
-            viewDrawing.type = BoxDrawingView.Type.box
+            viewModal.type = BoxDrawingView.Type.box
         }
         rbFreeDraw.setOnClickListener {
-            viewDrawing.type = BoxDrawingView.Type.freedraw
+            viewModal.type = BoxDrawingView.Type.freedraw
         }
-        rbFreeDraw.isChecked = true
+        rbFreeDraw.isChecked = viewModal.type == BoxDrawingView.Type.freedraw
+        rbLine.isChecked = viewModal.type == BoxDrawingView.Type.points
+        rbBox.isChecked = viewModal.type == BoxDrawingView.Type.box
+        viewDrawing.viewModel = viewModal
     }
 
     class BoxDrawingView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
         enum class Type {
             points, box, freedraw
         }
-        var type: Type = Type.freedraw
         private var currentBox: Box? = null
         private var currentPoint: PointF? = null
         private var clearCanvas: Boolean = false
-        private val boxen = mutableListOf<Box>()
-        private val points = mutableListOf<PointF>()
-        private val freeDrawSegments = mutableListOf<Segment>()
+        var viewModel: CustomDrawingViewModel? = null
         private val boxPaint = Paint().apply {
             color = 0x22ff0000.toInt()
         }
@@ -77,9 +95,9 @@ class CustomDrawingActivity: ComponentActivity() {
         private var currentSegment: Segment? = null
 
         fun clear() {
-            boxen.clear()
-            points.clear()
-            freeDrawSegments.clear()
+            viewModel?.boxen?.clear()
+            viewModel?.points?.clear()
+            viewModel?.freeDrawSegments?.clear()
             currentPoint = null
             currentBox = null
             clearCanvas = true
@@ -88,55 +106,48 @@ class CustomDrawingActivity: ComponentActivity() {
 
         override fun onTouchEvent(event: MotionEvent): Boolean {
             val current = PointF(event.x, event.y)
-            var action = ""
-            if (type == Type.points) {
+            if (viewModel?.type == Type.points) {
                 currentPoint = current
             }
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    action = "ACTION_DOWN"
-                    if (type == Type.box) {
+                    if (viewModel?.type == Type.box) {
                         currentBox = Box(current).also {
-                            boxen.add(it)
+                            viewModel?.boxen?.add(it)
                         }
-                    }else if (type == Type.freedraw) {
-                        if (type == Type.freedraw) {
+                    }else if (viewModel?.type == Type.freedraw) {
+                        if (viewModel?.type == Type.freedraw) {
                             if (currentSegment == null) currentSegment = Segment()
-                            freeDrawSegments.add(currentSegment!!)
+                            viewModel?.freeDrawSegments?.add(currentSegment!!)
                         }
                         currentSegment!!.add(current)
                     }
                 }
 
                 MotionEvent.ACTION_MOVE -> {
-                    action = "ACTION_MOVE"
-                    if (type == Type.box) {
+                    if (viewModel?.type == Type.box) {
                         updateCurrentBox(current)
-                    }else if (type == Type.freedraw) {
+                    }else if (viewModel?.type == Type.freedraw) {
                         currentSegment!!.add(current)
                     }
                 }
 
                 MotionEvent.ACTION_UP -> {
-                    action = "ACTION_UP"
-                    if (type == Type.box) {
+                    if (viewModel?.type == Type.box) {
                         updateCurrentBox(current)
                         currentBox = null
-                    }else if (type == Type.points) {
-                        points.add(current)
-                    }else if (type == Type.freedraw) {
+                    }else if (viewModel?.type == Type.points) {
+                        viewModel?.points?.add(current)
+                    }else if (viewModel?.type == Type.freedraw) {
                         currentSegment = null
                     }
                 }
 
                 MotionEvent.ACTION_CANCEL -> {
-                    action = "ACTION_CANCEL"
                     currentBox = null
                 }
             }
             invalidate()
-            Log.i(TAG, "$action at x = ${current.x}, y = ${current.y}")
-            Log.i(TAG, "segments: ${currentSegment?.points?.size}, total: ${freeDrawSegments.size}")
             return true
         }
 
@@ -151,12 +162,13 @@ class CustomDrawingActivity: ComponentActivity() {
             canvas.drawPaint(backgroundPaint)
             if (clearCanvas) { clearCanvas =false; return }
             //box
-            boxen.forEach { box ->
+            viewModel?.boxen?.forEach { box ->
                 canvas.drawRect(box.left, box.top, box.right, box.bottom, boxPaint)
             }
 
             //points
-            if (points.isNotEmpty()) {
+            if (viewModel?.points?.isNotEmpty() == true) {
+                val points = viewModel?.points!!
                 var from = points.first()
                 points.forEach { p ->
                     canvas.drawLine(from.x, from.y, p.x, p.y, linePaint)
@@ -167,7 +179,7 @@ class CustomDrawingActivity: ComponentActivity() {
                 }
             }
             //freedraw
-            freeDrawSegments.forEach { segment ->
+            viewModel?.freeDrawSegments?.forEach { segment ->
                 if (segment.points.isNotEmpty()) {
                     var from = segment.points.first()
                     segment.points.forEach { p ->
