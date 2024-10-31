@@ -26,6 +26,9 @@ class MainActivity : ComponentActivity() {
         findViewById<Button>(R.id.btnFragment)?.setOnClickListener {
             startActivity(Intent(this, FragmentDemoMainActivity::class.java))
         }
+        findViewById<Button>(R.id.btnRecycleView)?.setOnClickListener {
+            startActivity(Intent(this, RecycleViewActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
