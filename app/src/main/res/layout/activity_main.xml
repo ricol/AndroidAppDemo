@@ -15,4 +15,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CustomDrawing" />
+
+    <Button
+        android:id="@+id/btnCustomDrawingWithParameters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CustomDrawingWithParameter" />
+
+    <Button
+        android:id="@+id/btnCustomDrawingForResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CustomDrawingForResult" />
 </LinearLayout>
