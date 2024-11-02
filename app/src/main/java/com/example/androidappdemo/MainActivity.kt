@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this, DetailsActivity::class.java).apply { putExtra("param", "Welcome!") })
         }
         findViewById<Button>(R.id.btnLaunchActivityForResult)?.setOnClickListener {
-            startActivityForResult(Intent(this, DetailsActivity::class.java), 0)
+            startActivityForResult(Intent(this, DetailsActivity::class.java), (1..10).random())
         }
         findViewById<Button>(R.id.btnFragment)?.setOnClickListener {
             startActivity(Intent(this, FragmentDemoMainActivity::class.java))
