@@ -2,7 +2,6 @@ package com.example.androidappdemo
 
 import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -43,11 +42,6 @@ class CustomDrawingActivity: ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val params = intent.getStringExtra("param")
-        Log.d(TAG, "params: $params")
-        if (savedInstanceState != null) {
-            Log.d(TAG, "$this->onCreate...${savedInstanceState.getString("string")}")
-        }
         setContentView(R.layout.activity_custom_drawing)
         rbLine = findViewById(R.id.rbLine)
         rbBox = findViewById(R.id.rbBox)
@@ -65,10 +59,6 @@ class CustomDrawingActivity: ComponentActivity() {
         }
         rbFreeDraw.setOnClickListener {
             viewModal.type = BoxDrawingView.Type.freedraw
-        }
-        findViewById<Button>(R.id.btnReturnWithResult)?.setOnClickListener {
-            setResult(0, Intent().apply { putExtra("result", "manually return") })
-            finish()
         }
         rbFreeDraw.isChecked = viewModal.type == BoxDrawingView.Type.freedraw
         rbLine.isChecked = viewModal.type == BoxDrawingView.Type.points

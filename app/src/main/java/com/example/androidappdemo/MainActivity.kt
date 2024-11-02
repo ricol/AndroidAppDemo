@@ -1,10 +1,9 @@
 package com.example.androidappdemo
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
@@ -17,11 +16,11 @@ class MainActivity : ComponentActivity() {
         findViewById<Button>(R.id.btnCustomDrawing)?.setOnClickListener {
             startActivity(Intent(this, CustomDrawingActivity::class.java))
         }
-        findViewById<Button>(R.id.btnCustomDrawingWithParameters)?.setOnClickListener {
-            startActivity(Intent(this, CustomDrawingActivity::class.java).apply { putExtra("param", "Welcome!") })
+        findViewById<Button>(R.id.btnLaunchActivityWithParams)?.setOnClickListener {
+            startActivity(Intent(this, DetailsActivity::class.java).apply { putExtra("param", "Welcome!") })
         }
-        findViewById<Button>(R.id.btnCustomDrawingForResult)?.setOnClickListener {
-            startActivityForResult(Intent(this, CustomDrawingActivity::class.java), 0)
+        findViewById<Button>(R.id.btnLaunchActivityForResult)?.setOnClickListener {
+            startActivityForResult(Intent(this, DetailsActivity::class.java), 0)
         }
         findViewById<Button>(R.id.btnFragment)?.setOnClickListener {
             startActivity(Intent(this, FragmentDemoMainActivity::class.java))
@@ -33,6 +32,8 @@ class MainActivity : ComponentActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        Log.d(TAG, "resultCode: $resultCode, requestCode: $requestCode, data: $data, more: ${data?.getStringExtra("result")}")
+        Toast.makeText(this,
+            "resultCode: $resultCode, requestCode: $requestCode, data: $data, more: ${data?.getStringExtra("result")}",
+            Toast.LENGTH_LONG).show()
     }
 }

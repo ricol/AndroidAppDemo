@@ -17,16 +17,16 @@
         android:text="CustomDrawing" />
 
     <Button
-        android:id="@+id/btnCustomDrawingWithParameters"
+        android:id="@+id/btnLaunchActivityWithParams"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CustomDrawingWithParameter" />
+        android:text="Activity With Params" />
 
     <Button
-        android:id="@+id/btnCustomDrawingForResult"
+        android:id="@+id/btnLaunchActivityForResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CustomDrawingForResult" />
+        android:text="Activity with result" />
 
     <Button
         android:id="@+id/btnFragment"
