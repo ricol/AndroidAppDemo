@@ -35,6 +35,12 @@
         android:text="Fragments" />
 
     <Button
+        android:id="@+id/btnFragmentCallback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment with callback" />
+
+    <Button
         android:id="@+id/btnRecycleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

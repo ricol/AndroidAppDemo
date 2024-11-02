@@ -4,11 +4,13 @@ import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import com.example.androidappdemo.fragments.CallBackFragment
 import com.example.androidappdemo.fragments.DetailsFragment
 import com.example.androidappdemo.fragments.MainFragment
 
-class FragmentDemoMainActivity: FragmentActivity() {
+class FragmentDemoMainActivity: FragmentActivity(), CallBackFragment.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_main)
@@ -36,5 +38,22 @@ class FragmentDemoMainActivity: FragmentActivity() {
                 supportFragmentManager.beginTransaction().remove(it).commit()
             }
         }
+
+        val callback = intent.getBooleanExtra("callback", false)
+        if (callback) {
+            val args = Bundle().apply {
+                putString("message", "this is message from the activity")
+            }
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer,
+                    CallBackFragment()
+                        .apply { title = "Call callback"; arguments = args }
+                ).commit()
+        }
+    }
+
+    override fun fragmentOnReturn() {
+        Toast.makeText(this, "This is callback method defined in the activity and called from the child fragment!", Toast.LENGTH_SHORT).show()
     }
 }
