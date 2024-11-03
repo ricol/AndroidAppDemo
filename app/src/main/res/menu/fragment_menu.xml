@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/app_bar_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
+        android:showAsAction="always"/>
+
+    <item
+        android:id="@+id/app_bar_switch"
+        android:showAsAction="always"
+        android:title="Switch"
+        app:actionLayout="@layout/switch_item"
+        />
+
+    <item
+        android:id="@+id/menuItem1"
+        android:title="Item 1"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/menuItem2"
+        android:title="Item 2"
+        android:icon="@android:drawable/ic_menu_help"
+        android:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/menuItem3"
+        android:title="Item 3"
+        android:icon="@android:drawable/ic_menu_call"
+        android:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/menuItem4"
+        android:title="Item 4"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:showAsAction="collapseActionView"
+        >
+    </item>
+    <item
+        android:id="@+id/menuItem5"
+        android:title="Item 5"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:showAsAction="withText"
+        />
+</menu>

@@ -33,6 +33,12 @@ class MainActivity : ComponentActivity() {
                 putExtra("callback", true)
             })
         }
+        findViewById<Button>(R.id.btnComponents)?.setOnClickListener {
+            startActivity(Intent(this, ComponentsDemoActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnMenu)?.setOnClickListener {
+            startActivity(Intent(this, MenuDemoActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

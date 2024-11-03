@@ -28,6 +28,8 @@
         <activity android:name=".FragmentDemoMainActivity" />
         <activity android:name=".RecycleViewActivity" />
         <activity android:name=".DetailsActivity" />
+        <activity android:name=".ComponentsDemoActivity" />
+        <activity android:name=".MenuDemoActivity" />
     </application>
 
 </manifest>
