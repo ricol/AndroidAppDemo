@@ -39,6 +39,9 @@ class MainActivity : ComponentActivity() {
         findViewById<Button>(R.id.btnMenu)?.setOnClickListener {
             startActivity(Intent(this, MenuDemoActivity::class.java))
         }
+        findViewById<Button>(R.id.btnToolbar)?.setOnClickListener {
+            startActivity(Intent(this, ToolbarDemoActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

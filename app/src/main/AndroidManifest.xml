@@ -30,6 +30,7 @@
         <activity android:name=".DetailsActivity" />
         <activity android:name=".ComponentsDemoActivity" />
         <activity android:name=".MenuDemoActivity" />
+        <activity android:name=".ToolbarDemoActivity" />
     </application>
 
 </manifest>

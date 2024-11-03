@@ -1,14 +1,19 @@
 package com.example.androidappdemo
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.example.androidappdemo.fragments.CallBackFragment
-import com.example.androidappdemo.fragments.DetailsFragment
-import com.example.androidappdemo.fragments.MainFragment
 
 class FragmentDemoMainActivity: FragmentActivity(), CallBackFragment.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,5 +60,56 @@ class FragmentDemoMainActivity: FragmentActivity(), CallBackFragment.Callbacks {
 
     override fun fragmentOnReturn() {
         Toast.makeText(this, "This is callback method defined in the activity and called from the child fragment!", Toast.LENGTH_SHORT).show()
+    }
+}
+
+
+class DetailsFragment: Fragment() {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_details, container, false)
+        Log.d(TAG, "$this -> view: $view")
+        view.findViewById<ImageView>(R.id.imageView)?.setImageResource(R.drawable.sun)
+        view.findViewById<TextView>(R.id.textView).text = (1..100).random().toString()
+        return view
+    }
+}
+
+class MainFragment: Fragment() {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
+        Log.d(TAG, "$this -> view: $view")
+        view.findViewById<ImageView>(R.id.imageView)?.setImageResource(R.drawable.ic_launcher_background)
+        view.findViewById<TextView>(R.id.textView).text = (1..100).random().toString()
+        return view
+    }
+}
+
+class CallBackFragment: Fragment() {
+    interface Callbacks {
+        fun fragmentOnReturn()
+    }
+    var callBack: Callbacks? = null
+    var title: String? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callBack = context as? Callbacks
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val layout = LinearLayout(this.context)
+        layout.orientation = LinearLayout.VERTICAL
+        val textView = TextView(this.context)
+        textView.text = arguments?.getString("message", "no message from activity")
+        layout.addView(textView)
+        val btn = Button(this.context)
+        btn.text = title ?: "Callback"
+        btn.setOnClickListener {
+            Log.d(TAG, "calling callback...$callBack")
+            callBack?.fragmentOnReturn()
+        }
+        layout.addView(btn)
+        return layout
     }
 }
