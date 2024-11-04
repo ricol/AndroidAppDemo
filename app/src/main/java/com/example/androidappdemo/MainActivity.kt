@@ -13,6 +13,9 @@ class MainActivity : ComponentActivity() {
         findViewById<Button>(R.id.btnAnimation)?.setOnClickListener {
             startActivity(Intent(this, AnimationActivity::class.java))
         }
+        findViewById<Button>(R.id.btnAnimationDemo)?.setOnClickListener {
+            startActivity(Intent(this, AnimationDemoActivity::class.java))
+        }
         findViewById<Button>(R.id.btnCustomDrawing)?.setOnClickListener {
             startActivity(Intent(this, CustomDrawingActivity::class.java))
         }

@@ -16,7 +16,7 @@ import androidx.activity.ComponentActivity
 import com.example.androidappdemo.utils.AppConstants
 import com.example.androidappdemo.utils.Utils
 
-class DefaultComponentBaseActivity: ComponentActivity() {
+open class DefaultComponentBaseActivity: ComponentActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         Utils.output(AppConstants.TagLifeCycle, "$this.onCreateOptionsMenu...")
         return super.onCreateOptionsMenu(menu)
