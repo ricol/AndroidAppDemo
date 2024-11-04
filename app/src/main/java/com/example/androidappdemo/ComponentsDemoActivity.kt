@@ -1,5 +1,6 @@
 package com.example.androidappdemo
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
@@ -48,7 +49,23 @@ class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
                 }.show(it, null)
             }
         }
+        val btnAlertDialog = Button(this.requireContext())
+        btnAlertDialog.text = "Alert Dialog"
+        btnAlertDialog.setOnClickListener {
+            val builder = AlertDialog.Builder(this.context)
+            builder.setMessage("Welcome to Android world!")
+            builder.setTitle("Alert Dialog")
+            builder.setPositiveButton("OK") {_, _ ->
+                Toast.makeText(this.requireContext(), "Pressed OK", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Cancel") { _, _ ->
+                Toast.makeText(this.requireContext(), "Pressed Cancel", Toast.LENGTH_SHORT).show()
+            }
+            val dialog = builder.create()
+            dialog.show()
+        }
         layout.addView(btnDatePicker)
+        layout.addView(btnAlertDialog)
         return layout
     }
 
