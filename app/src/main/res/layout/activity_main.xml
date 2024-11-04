@@ -69,4 +69,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ToolBar" />
+
+    <Button
+        android:id="@+id/btnNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification" />
 </LinearLayout>
