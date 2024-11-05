@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AnimationActivity" />
+        <activity android:name=".PropertyAnimationActivity" />
         <activity android:name=".CustomDrawingActivity" />
         <activity android:name=".FragmentDemoMainActivity" />
         <activity android:name=".RecycleViewActivity" />
@@ -34,8 +34,9 @@
         <activity android:name=".ToolbarDemoActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             />
-        <activity android:name=".AnimationDemoActivity" />
+        <activity android:name=".LoadAnimationDemoActivity" />
         <activity android:name=".NotificationDemoActivity" />
+        <activity android:name=".AnimationListActivity" />
     </application>
 
 </manifest>
