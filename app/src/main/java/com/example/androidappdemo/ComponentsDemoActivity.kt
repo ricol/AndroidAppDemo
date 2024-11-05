@@ -3,7 +3,10 @@ package com.example.androidappdemo
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.app.ProgressDialog
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,8 +41,10 @@ class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
 }
 
 class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
+    lateinit var rootView: View
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = LinearLayout(this.requireContext())
+        layout.orientation = LinearLayout.VERTICAL
         val btnDatePicker = Button(this.requireContext())
         btnDatePicker.text = "Date Picker"
         btnDatePicker.setOnClickListener {
@@ -66,6 +71,63 @@ class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
         }
         layout.addView(btnDatePicker)
         layout.addView(btnAlertDialog)
+        val btnProgress = Button(requireContext())
+        btnProgress.text = "Progress Dialog"
+        btnProgress.setOnClickListener {
+            val dlg = ProgressDialog(requireContext())
+            dlg.setTitle("Please wait")
+            dlg.setMessage("Processing...")
+            dlg.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL)
+            dlg.progress = 0
+            dlg.max = 100
+            dlg.show()
+            val thread = Thread() {
+                Log.d(TAG, "${Thread.currentThread()} begin...")
+                try {
+                    requireActivity().runOnUiThread {
+                        dlg.progress = 10
+                        Log.d(TAG, "${Thread.currentThread()} 1...")
+                    }
+                    Thread.sleep(1000)
+                    requireActivity().runOnUiThread {
+                        dlg.progress = 30
+                        Log.d(TAG, "${Thread.currentThread()} 2...")
+                    }
+                    Thread.sleep(1000)
+                    requireActivity().runOnUiThread {
+                        dlg.progress = 70
+                        Log.d(TAG, "${Thread.currentThread()} 3...")
+                    }
+                    Thread.sleep(1000)
+                    requireActivity().runOnUiThread {
+                        dlg.progress = 100
+                        Log.d(TAG, "${Thread.currentThread()} 4...")
+                    }
+                    Thread.sleep(1000)
+                }catch (e: Exception) {
+                    Log.d(TAG, "exception: $e")
+                }
+                requireActivity().runOnUiThread {
+                    dlg.progress = 100
+                    dlg.dismiss()
+                    Log.d(TAG, "${Thread.currentThread()} end.")
+                    Thread() {
+                        val btnTemp = Button(requireContext())
+                        btnTemp.text = "Temp Button"
+                        btnTemp.setOnClickListener {
+                            Toast.makeText(requireContext(), "this is temp button", Toast.LENGTH_SHORT).show()
+                        }
+                        requireActivity().runOnUiThread {
+                            Log.d(TAG, "${Thread.currentThread()} runOnUIThread...")
+                            (rootView as LinearLayout).addView(btnTemp)
+                        }
+                    }.start()
+                }
+            }
+            thread.start()
+        }
+        layout.addView(btnProgress)
+        rootView = layout
         return layout
     }
 
