@@ -80,6 +80,7 @@ class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
             dlg.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL)
             dlg.progress = 0
             dlg.max = 100
+            dlg.setCancelable(false)
             dlg.show()
             val thread = Thread() {
                 Log.d(TAG, "${Thread.currentThread()} begin...")

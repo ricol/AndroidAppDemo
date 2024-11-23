@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnSendMessageToMainHandler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send message to main handler" />
+
+    <Button
+        android:id="@+id/btnExecRunnableOnMainHandler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Execute runnable on main handler" />
+
+    <Button
+        android:id="@+id/btnCreateThreadWithLooper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create thread with looper" />
+
+    <Button
+        android:id="@+id/btnSendMsgToThreadWithLooper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send message to thread with looper" />
+
+    <Button
+        android:id="@+id/btnSendQuitMsgToThreadWithLooper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Quit message to thread with looper" />
+
+    <Button
+        android:id="@+id/btnPostRunnableToThreadWithLooper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post runnable to thread with looper" />
+</LinearLayout>

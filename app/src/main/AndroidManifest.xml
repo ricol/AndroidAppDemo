@@ -37,6 +37,7 @@
         <activity android:name=".LoadAnimationDemoActivity" />
         <activity android:name=".NotificationDemoActivity" />
         <activity android:name=".AnimationListActivity" />
+        <activity android:name=".HandlerDemoActivity" />
     </application>
 
 </manifest>

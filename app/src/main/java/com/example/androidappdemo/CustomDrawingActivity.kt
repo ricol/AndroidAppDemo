@@ -13,9 +13,9 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.RadioButton
-import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
+import com.example.androidappdemo.base.DefaultComponentBaseActivity
 
 class CustomDrawingViewModel: ViewModel() {
     var points = mutableListOf<PointF>()
@@ -32,7 +32,7 @@ class CustomDrawingViewModel: ViewModel() {
     }
 }
 
-class CustomDrawingActivity: ComponentActivity() {
+class CustomDrawingActivity: DefaultComponentBaseActivity() {
     lateinit var rbLine: RadioButton
     lateinit var rbBox: RadioButton
     lateinit var rbFreeDraw: RadioButton

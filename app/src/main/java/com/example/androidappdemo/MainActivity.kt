@@ -45,6 +45,9 @@ class MainActivity : ComponentActivity() {
         findViewById<Button>(R.id.btnNotification)?.setOnClickListener {
             startActivity(Intent(this, NotificationDemoActivity::class.java))
         }
+        findViewById<Button>(R.id.btnHandler)?.setOnClickListener {
+            startActivity(Intent(this, HandlerDemoActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
