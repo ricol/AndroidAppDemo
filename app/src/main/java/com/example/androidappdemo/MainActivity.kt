@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import com.example.androidappdemo.network.NetworkActivity
 import com.example.androidappdemo.ui.UIDemoActivity
 
 class MainActivity : ComponentActivity() {
@@ -51,6 +52,9 @@ class MainActivity : ComponentActivity() {
         }
         findViewById<Button>(R.id.btnUI)?.setOnClickListener {
             startActivity(Intent(this, UIDemoActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnNetwork)?.setOnClickListener {
+            startActivity(Intent(this, NetworkActivity::class.java))
         }
     }
 

@@ -17,11 +17,12 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import com.example.androidappdemo.base.DefaultComponentBaseActivity
 
-class CustomDrawingViewModel: ViewModel() {
+class CustomDrawingViewModel : ViewModel() {
     var points = mutableListOf<PointF>()
     var boxen = mutableListOf<CustomDrawingActivity.Box>()
     var freeDrawSegments = mutableListOf<CustomDrawingActivity.Segment>()
     var type: CustomDrawingActivity.BoxDrawingView.Type = CustomDrawingActivity.BoxDrawingView.Type.freedraw
+
     override fun onCleared() {
         super.onCleared()
         Log.d(TAG, "$this onCleared...")
@@ -32,7 +33,7 @@ class CustomDrawingViewModel: ViewModel() {
     }
 }
 
-class CustomDrawingActivity: DefaultComponentBaseActivity() {
+class CustomDrawingActivity : DefaultComponentBaseActivity() {
     lateinit var rbLine: RadioButton
     lateinit var rbBox: RadioButton
     lateinit var rbFreeDraw: RadioButton
@@ -76,6 +77,7 @@ class CustomDrawingActivity: DefaultComponentBaseActivity() {
         enum class Type {
             points, box, freedraw
         }
+
         private var currentBox: Box? = null
         private var currentPoint: PointF? = null
         private var clearCanvas: Boolean = false
@@ -121,7 +123,7 @@ class CustomDrawingActivity: DefaultComponentBaseActivity() {
                         currentBox = Box(current).also {
                             viewModel?.boxen?.add(it)
                         }
-                    }else if (viewModel?.type == Type.freedraw) {
+                    } else if (viewModel?.type == Type.freedraw) {
                         if (viewModel?.type == Type.freedraw) {
                             if (currentSegment == null) currentSegment = Segment()
                             viewModel?.freeDrawSegments?.add(currentSegment!!)
@@ -133,7 +135,7 @@ class CustomDrawingActivity: DefaultComponentBaseActivity() {
                 MotionEvent.ACTION_MOVE -> {
                     if (viewModel?.type == Type.box) {
                         updateCurrentBox(current)
-                    }else if (viewModel?.type == Type.freedraw) {
+                    } else if (viewModel?.type == Type.freedraw) {
                         currentSegment!!.add(current)
                     }
                 }
@@ -142,9 +144,9 @@ class CustomDrawingActivity: DefaultComponentBaseActivity() {
                     if (viewModel?.type == Type.box) {
                         updateCurrentBox(current)
                         currentBox = null
-                    }else if (viewModel?.type == Type.points) {
+                    } else if (viewModel?.type == Type.points) {
                         viewModel?.points?.add(current)
-                    }else if (viewModel?.type == Type.freedraw) {
+                    } else if (viewModel?.type == Type.freedraw) {
                         currentSegment = null
                     }
                 }
@@ -166,7 +168,9 @@ class CustomDrawingActivity: DefaultComponentBaseActivity() {
 
         override fun onDraw(canvas: Canvas) {
             canvas.drawPaint(backgroundPaint)
-            if (clearCanvas) { clearCanvas =false; return }
+            if (clearCanvas) {
+                clearCanvas = false; return
+            }
             //box
             viewModel?.boxen?.forEach { box ->
                 canvas.drawRect(box.left, box.top, box.right, box.bottom, boxPaint)
@@ -214,6 +218,7 @@ class CustomDrawingActivity: DefaultComponentBaseActivity() {
 
     class Segment {
         var points = mutableListOf<PointF>()
+
         fun add(p: PointF) {
             points.add(p)
         }

@@ -15,7 +15,7 @@ import android.widget.Toast
 import com.example.androidappdemo.base.DefaultBaseFragment
 import com.example.androidappdemo.base.DefaultFragmentBaseActivity
 
-class FragmentDemoMainActivity: DefaultFragmentBaseActivity(), CallBackFragment.Callbacks {
+class FragmentDemoMainActivity : DefaultFragmentBaseActivity(), CallBackFragment.Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_main)
@@ -63,7 +63,7 @@ class FragmentDemoMainActivity: DefaultFragmentBaseActivity(), CallBackFragment.
     }
 }
 
-class DetailsFragment: DefaultBaseFragment() {
+class DetailsFragment : DefaultBaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_details, container, false)
@@ -74,7 +74,7 @@ class DetailsFragment: DefaultBaseFragment() {
     }
 }
 
-class MainFragment: DefaultBaseFragment() {
+class MainFragment : DefaultBaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         Log.d(TAG, "$this -> view: $view")
@@ -84,10 +84,11 @@ class MainFragment: DefaultBaseFragment() {
     }
 }
 
-class CallBackFragment: DefaultBaseFragment() {
+class CallBackFragment : DefaultBaseFragment() {
     interface Callbacks {
         fun fragmentOnReturn()
     }
+
     var callBack: Callbacks? = null
     var title: String? = null
 
