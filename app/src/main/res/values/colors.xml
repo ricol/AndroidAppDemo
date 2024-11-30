@@ -12,4 +12,9 @@
     <color name="sunset_sky">#ec8100</color>
     <color name="night_sky">#05192e</color>
     <color name="sea">#224869</color>
+    <color name="red">#f44336</color>
+    <color name="dark_red">#c3352b</color>
+    <color name="gray">#607d8b</color>
+    <color name="soothing_blue">#0083bf</color>
+    <color name="dark_blue">#00fa8a</color>
 </resources>

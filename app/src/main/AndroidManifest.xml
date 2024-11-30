@@ -38,6 +38,8 @@
         <activity android:name=".NotificationDemoActivity" />
         <activity android:name=".AnimationListActivity" />
         <activity android:name=".HandlerDemoActivity" />
+        <activity android:name=".ui.StyleDemoActivity" />
+        <activity android:name=".ui.UIDemoActivity" />
     </application>
 
 </manifest>

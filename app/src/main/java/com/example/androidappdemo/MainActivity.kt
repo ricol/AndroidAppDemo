@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import com.example.androidappdemo.ui.UIDemoActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +48,9 @@ class MainActivity : ComponentActivity() {
         }
         findViewById<Button>(R.id.btnHandler)?.setOnClickListener {
             startActivity(Intent(this, HandlerDemoActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnUI)?.setOnClickListener {
+            startActivity(Intent(this, UIDemoActivity::class.java))
         }
     }
 
