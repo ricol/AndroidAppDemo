@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnThread"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thread" />
+
+            <Button
+                android:id="@+id/btnSingleThreadPool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Single Thread Pool" />
+
+            <Button
+                android:id="@+id/btnFixedThreadPool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fixed Thread Pool" />
+
+            <Button
+                android:id="@+id/btnCachedThreadPool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cached Thread Pool" />
+
+            <Button
+                android:id="@+id/btnAsyncTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Async Task" />
+
+            <TextView
+                android:id="@+id/tvLogs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logs: " />
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clear Logs" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

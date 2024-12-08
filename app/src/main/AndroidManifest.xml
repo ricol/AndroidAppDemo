@@ -17,7 +17,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.AndroidAppDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +41,8 @@
         <activity android:name=".ui.StyleDemoActivity" />
         <activity android:name=".ui.UIDemoActivity" />
         <activity android:name=".network.NetworkActivity" />
+        <activity android:name=".storage.StorageDemoActivity" />
+        <activity android:name=".ThreadDemoActivity" />
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.example.androidappdemo.network.NetworkActivity
+import com.example.androidappdemo.storage.StorageDemoActivity
 import com.example.androidappdemo.ui.UIDemoActivity
 
 class MainActivity : ComponentActivity() {
@@ -55,6 +56,12 @@ class MainActivity : ComponentActivity() {
         }
         findViewById<Button>(R.id.btnNetwork)?.setOnClickListener {
             startActivity(Intent(this, NetworkActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnStorage)?.setOnClickListener {
+            startActivity(Intent(this, StorageDemoActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnMultiThreading)?.setOnClickListener {
+            startActivity(Intent(this, ThreadDemoActivity::class.java))
         }
     }
 
