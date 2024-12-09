@@ -14,6 +14,12 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnHandler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Handler" />
+
+            <Button
                 android:id="@+id/btnThread"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

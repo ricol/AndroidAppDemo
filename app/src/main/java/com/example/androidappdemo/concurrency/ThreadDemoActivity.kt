@@ -1,5 +1,6 @@
 package com.example.androidappdemo.concurrency
 
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
@@ -19,6 +20,10 @@ class ThreadDemoActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thread_demo)
         tvLogs = findViewById(R.id.tvLogs)
+
+        findViewById<Button>(R.id.btnHandler)?.setOnClickListener {
+            startActivity(Intent(this, HandlerDemoActivity::class.java))
+        }
 
         findViewById<Button>(R.id.btnThread)?.setOnClickListener {
             val thread1 = Thread() {

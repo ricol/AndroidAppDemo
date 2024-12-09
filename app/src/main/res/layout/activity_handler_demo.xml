@@ -11,6 +11,12 @@
         android:text="Send message to main handler" />
 
     <Button
+        android:id="@+id/btnPostRunnableToUIThread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post runnable to UI Thread(Main)" />
+
+    <Button
         android:id="@+id/btnExecRunnableOnMainHandler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,4 +45,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Post runnable to thread with looper" />
+
 </LinearLayout>

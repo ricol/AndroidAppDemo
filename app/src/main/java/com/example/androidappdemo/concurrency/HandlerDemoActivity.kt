@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.concurrency
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.os.Looper
 import android.os.Message
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
+import com.example.androidappdemo.R
 import com.example.androidappdemo.base.DefaultComponentBaseActivity
 import java.lang.Thread.sleep
 
@@ -18,6 +20,17 @@ class HandlerDemoActivity: DefaultComponentBaseActivity() {
         setContentView(R.layout.activity_handler_demo)
         findViewById<Button>(R.id.btnSendMessageToMainHandler)?.setOnClickListener {
             MyThread1(handler).start()
+        }
+        findViewById<Button>(R.id.btnPostRunnableToUIThread)?.setOnClickListener {
+            Thread {
+                Log.d(TAG, "[${Thread.currentThread()}]${this}...go to sleep for 3 seconds...")
+                Thread.sleep(1000 * 3)
+                Log.d(TAG, "[${Thread.currentThread()}]${this}...wake up from sleeping and post msg to the UI thread...")
+                runOnUiThread {
+                    Toast.makeText(this@HandlerDemoActivity, "message from the background thread.", Toast.LENGTH_SHORT).show()
+                }
+                Log.d(TAG, "[${Thread.currentThread()}]${this}...finished.")
+            }.start()
         }
         findViewById<Button>(R.id.btnExecRunnableOnMainHandler)?.setOnClickListener {
             MyThread2(handler).start()

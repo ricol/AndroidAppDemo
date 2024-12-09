@@ -30,7 +30,7 @@ class ListViewDemoActivity: ComponentActivity() {
         }
 
         for (i in 0..100) {
-            data.add(0, 10.getRandomString())
+            data.add(0, 10.getRandomString(space = true))
         }
 
         listView.adapter = object : BaseAdapter() {

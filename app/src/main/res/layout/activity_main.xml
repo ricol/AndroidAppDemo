@@ -26,12 +26,6 @@
                 android:text="Notification" />
 
             <Button
-                android:id="@+id/btnHandler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Handler" />
-
-            <Button
                 android:id="@+id/btnNetwork"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

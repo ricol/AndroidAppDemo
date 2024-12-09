@@ -14,7 +14,7 @@ class Utils {
     }
 }
 
-fun Int.getRandomString(): String {
+fun Int.getRandomString(space: Boolean = false): String {
     val str = "abcdefghijklmnopqrstuvwxyz"
     val chars = str.chars().toArray() + str.uppercase().chars().toArray()
     val characters = mutableListOf<Char>()
@@ -25,6 +25,11 @@ fun Int.getRandomString(): String {
     for (i in 0..this) {
         val r = Random.nextInt(1..characters.count())
         result.add(0, characters[r - 1])
+        if (space) {
+            if (Random.nextInt() % 10 > 7) {
+                result.add(0, ' ')
+            }
+        }
     }
     return result.joinToString(separator = "")
 }

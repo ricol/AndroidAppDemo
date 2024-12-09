@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.activity.ComponentActivity
 import com.example.androidappdemo.concurrency.ThreadDemoActivity
 import com.example.androidappdemo.network.NetworkActivity
+import com.example.androidappdemo.notification.NotificationDemoActivity
 import com.example.androidappdemo.storage.StorageDemoActivity
 import com.example.androidappdemo.ui.UIDemoActivity
 
@@ -15,9 +16,6 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
         findViewById<Button>(R.id.btnNotification)?.setOnClickListener {
             startActivity(Intent(this, NotificationDemoActivity::class.java))
-        }
-        findViewById<Button>(R.id.btnHandler)?.setOnClickListener {
-            startActivity(Intent(this, HandlerDemoActivity::class.java))
         }
         findViewById<Button>(R.id.btnUI)?.setOnClickListener {
             startActivity(Intent(this, UIDemoActivity::class.java))

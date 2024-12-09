@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.notification
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -8,6 +8,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import com.example.androidappdemo.MainActivity
+import com.example.androidappdemo.R
 import com.example.androidappdemo.base.DefaultComponentBaseActivity
 
 class NotificationDemoActivity: DefaultComponentBaseActivity() {

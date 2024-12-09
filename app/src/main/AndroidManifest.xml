@@ -35,9 +35,9 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             />
         <activity android:name=".ui.LoadAnimationDemoActivity" />
-        <activity android:name=".NotificationDemoActivity" />
+        <activity android:name=".notification.NotificationDemoActivity" />
         <activity android:name=".ui.AnimationListActivity" />
-        <activity android:name=".HandlerDemoActivity" />
+        <activity android:name=".concurrency.HandlerDemoActivity" />
         <activity android:name=".ui.StyleDemoActivity" />
         <activity android:name=".ui.UIDemoActivity" />
         <activity android:name=".network.NetworkActivity" />
