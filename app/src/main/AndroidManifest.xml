@@ -24,25 +24,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PropertyAnimationActivity" />
-        <activity android:name=".CustomDrawingActivity" />
-        <activity android:name=".FragmentDemoMainActivity" />
-        <activity android:name=".RecycleViewActivity" />
-        <activity android:name=".DetailsActivity" />
-        <activity android:name=".ComponentsDemoActivity" />
-        <activity android:name=".MenuDemoActivity" />
-        <activity android:name=".ToolbarDemoActivity"
+        <activity android:name=".ui.PropertyAnimationActivity" />
+        <activity android:name=".ui.CustomDrawingActivity" />
+        <activity android:name=".ui.FragmentDemoMainActivity" />
+        <activity android:name=".ui.RecycleViewActivity" />
+        <activity android:name=".ui.DetailsActivity" />
+        <activity android:name=".ui.ComponentsDemoActivity" />
+        <activity android:name=".ui.MenuDemoActivity" />
+        <activity android:name=".ui.ToolbarDemoActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             />
-        <activity android:name=".LoadAnimationDemoActivity" />
+        <activity android:name=".ui.LoadAnimationDemoActivity" />
         <activity android:name=".NotificationDemoActivity" />
-        <activity android:name=".AnimationListActivity" />
+        <activity android:name=".ui.AnimationListActivity" />
         <activity android:name=".HandlerDemoActivity" />
         <activity android:name=".ui.StyleDemoActivity" />
         <activity android:name=".ui.UIDemoActivity" />
         <activity android:name=".network.NetworkActivity" />
         <activity android:name=".storage.StorageDemoActivity" />
-        <activity android:name=".ThreadDemoActivity" />
+        <activity android:name=".concurrency.ThreadDemoActivity" />
     </application>
 
 </manifest>

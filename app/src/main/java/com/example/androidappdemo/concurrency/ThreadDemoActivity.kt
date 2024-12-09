@@ -1,11 +1,14 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.concurrency
 
+import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import com.example.androidappdemo.R
+import com.example.androidappdemo.utils.Utils
 import java.util.concurrent.Executors
 
 class ThreadDemoActivity: ComponentActivity() {
@@ -55,6 +58,8 @@ class ThreadDemoActivity: ComponentActivity() {
             }
         }
         findViewById<Button>(R.id.btnAsyncTask)?.setOnClickListener {
+            val task = MyAsyncTask(tvLogs, handler)
+            task.execute("https://www.baidu.com")
         }
         findViewById<Button>(R.id.btnClear)?.setOnClickListener {
             tvLogs.text = ""
@@ -80,5 +85,41 @@ class ThreadDemoActivity: ComponentActivity() {
             }
         }
         wakeup(gotoSleep(n))
+    }
+
+    class MyAsyncTask(val tvOutput: TextView, val handle: Handler): AsyncTask<String, Int, String>() {
+
+        override fun onPreExecute() {
+            super.onPreExecute()
+            Utils.output(msg = "onPreExecute...")
+            tvOutput.text = "${tvOutput.text}\n[${Thread.currentThread()}] onPreExecute..."
+        }
+
+        override fun onProgressUpdate(vararg values: Int?) {
+            super.onProgressUpdate(*values)
+            Utils.output(msg = "onProgressupdate...${values}")
+            tvOutput.text = "${tvOutput.text}\n[${Thread.currentThread()}] onProgressupdate...${values}"
+        }
+
+        override fun doInBackground(vararg params: String?): String {
+            Utils.output(msg = "params: ${params}")
+            var sum: Int = 0
+            for (i in 1..100) {
+                sum += i
+                Thread.sleep(100)
+                if (i % 10 == 0) {
+                    handle.post {
+                        tvOutput.text = "${tvOutput.text}\n[${Thread.currentThread()}] doInBackground...i: ${i}, sum: ${sum}"
+                    }
+                }
+            }
+            return "${sum}"
+        }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+            Utils.output(msg = "onPostExecute...${result}")
+            tvOutput.text = "${tvOutput.text}\n[${Thread.currentThread()}] onPostExecute...${result}"
+        }
     }
 }

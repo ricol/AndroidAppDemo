@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.androidappdemo.R
 
 class ToolbarDemoActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidappdemo.R
 import java.util.Locale
 
 class RecycleViewActivity: ComponentActivity() {

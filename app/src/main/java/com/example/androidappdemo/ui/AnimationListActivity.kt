@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.ui
 
 import android.animation.AnimatorSet
 import android.animation.ArgbEvaluator
@@ -15,6 +15,7 @@ import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
+import com.example.androidappdemo.R
 import com.example.androidappdemo.base.DefaultComponentBaseActivity
 
 class AnimationListActivity: DefaultComponentBaseActivity() {

@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.ui
 
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.example.androidappdemo.R
 import com.example.androidappdemo.base.DefaultBaseFragment
 import com.example.androidappdemo.base.DefaultFragmentBaseActivity
 

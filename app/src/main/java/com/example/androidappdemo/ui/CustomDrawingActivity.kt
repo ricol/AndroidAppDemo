@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.ui
 
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.RadioButton
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
+import com.example.androidappdemo.R
 import com.example.androidappdemo.base.DefaultComponentBaseActivity
 
 class CustomDrawingViewModel : ViewModel() {

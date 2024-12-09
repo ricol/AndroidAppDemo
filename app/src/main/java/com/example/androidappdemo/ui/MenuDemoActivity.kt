@@ -1,4 +1,4 @@
-package com.example.androidappdemo
+package com.example.androidappdemo.ui
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -17,6 +17,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.example.androidappdemo.R
 
 class ChildMenuFragment: Fragment(), PopupMenu.OnMenuItemClickListener {
     var menuToLoad: Int? = null

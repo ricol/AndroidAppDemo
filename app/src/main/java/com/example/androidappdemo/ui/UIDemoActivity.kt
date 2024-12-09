@@ -5,15 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import com.example.androidappdemo.AnimationListActivity
-import com.example.androidappdemo.ComponentsDemoActivity
-import com.example.androidappdemo.CustomDrawingActivity
-import com.example.androidappdemo.DetailsActivity
-import com.example.androidappdemo.FragmentDemoMainActivity
-import com.example.androidappdemo.MenuDemoActivity
 import com.example.androidappdemo.R
-import com.example.androidappdemo.RecycleViewActivity
-import com.example.androidappdemo.ToolbarDemoActivity
 
 class UIDemoActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

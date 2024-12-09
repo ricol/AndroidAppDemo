@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
+import com.example.androidappdemo.concurrency.ThreadDemoActivity
 import com.example.androidappdemo.network.NetworkActivity
 import com.example.androidappdemo.storage.StorageDemoActivity
 import com.example.androidappdemo.ui.UIDemoActivity

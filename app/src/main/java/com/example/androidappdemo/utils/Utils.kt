@@ -4,9 +4,9 @@ import android.util.Log
 
 class Utils {
     companion object {
-        fun output(tag: String, msg: String) {
+        fun output(tag: String = AppConstants.TagGeneral, msg: String) {
             if (AppConstants.tagVisibleMapping[tag] ?: false) {
-                Log.d(tag, msg)
+                Log.d(tag, "[${Thread.currentThread()}] ${msg}")
             }
         }
     }

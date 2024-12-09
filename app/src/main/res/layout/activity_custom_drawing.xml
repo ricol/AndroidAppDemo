@@ -41,7 +41,7 @@
     </LinearLayout>
 
     <view
-        class="com.example.androidappdemo.CustomDrawingActivity$BoxDrawingView"
+        class="com.example.androidappdemo.ui.CustomDrawingActivity$BoxDrawingView"
         android:layout_width="wrap_content"
         android:id="@+id/viewDrawing"
         android:layout_height="wrap_content" />
