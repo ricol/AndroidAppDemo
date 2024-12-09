@@ -46,6 +46,9 @@ class UIDemoActivity: ComponentActivity() {
         findViewById<Button>(R.id.btnToolbar)?.setOnClickListener {
             startActivity(Intent(this, ToolbarDemoActivity::class.java))
         }
+        findViewById<Button>(R.id.btnListView)?.setOnClickListener {
+            startActivity(Intent(this, ListViewDemoActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
