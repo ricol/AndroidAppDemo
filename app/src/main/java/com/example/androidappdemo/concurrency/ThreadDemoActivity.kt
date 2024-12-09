@@ -97,8 +97,8 @@ class ThreadDemoActivity: ComponentActivity() {
 
         override fun onProgressUpdate(vararg values: Int?) {
             super.onProgressUpdate(*values)
-            Utils.output(msg = "onProgressupdate...${values}")
-            tvOutput.text = "${tvOutput.text}\n[${Thread.currentThread()}] onProgressupdate...${values}"
+            Utils.output(msg = "onProgressupdate...${values.first()}")
+            tvOutput.text = "${tvOutput.text}\n[${Thread.currentThread()}] onProgressupdate...${values.first()}"
         }
 
         override fun doInBackground(vararg params: String?): String {
@@ -108,6 +108,7 @@ class ThreadDemoActivity: ComponentActivity() {
                 sum += i
                 Thread.sleep(100)
                 if (i % 10 == 0) {
+                    publishProgress(i)
                     handle.post {
                         tvOutput.text = "${tvOutput.text}\n[${Thread.currentThread()}] doInBackground...i: ${i}, sum: ${sum}"
                     }
