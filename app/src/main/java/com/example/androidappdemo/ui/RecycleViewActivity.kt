@@ -11,6 +11,8 @@ import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidappdemo.R
+import com.example.androidappdemo.utils.Utils
+import com.example.androidappdemo.utils.getRandomString
 import java.util.Locale
 
 class RecycleViewActivity: ComponentActivity() {
@@ -28,9 +30,8 @@ class RecycleViewActivity: ComponentActivity() {
         btnDelete = findViewById(R.id.btnDelete)
         btnClear = findViewById(R.id.btnClear)
         btnAdd.setOnClickListener {
-            val strings = arrayOf("wang xing he", "wang mei", "ricol wang")
-            val images = arrayOf(R.drawable.sun, R.drawable.moon)
-            adapter.data.add(Pair(strings.random(), images.random()))
+            val images = Utils.getImageLiusisi(this)
+            adapter.data.add(Pair(10.getRandomString(), images.random()))
             adapter.notifyItemInserted(adapter.data.count() - 1)
         }
         btnDelete.setOnClickListener {
@@ -45,6 +46,10 @@ class RecycleViewActivity: ComponentActivity() {
         adapter = CustomRecycleViewAdapter()
         recycleView.adapter = adapter
         recycleView.layoutManager = LinearLayoutManager(this)
+        for (i in 0..10) {
+            val images = Utils.getImageLiusisi(this)
+            adapter.data.add(Pair(10.getRandomString(), images.random()))
+        }
     }
 
     class CustomViewHolder(view: View): RecyclerView.ViewHolder(view) {
