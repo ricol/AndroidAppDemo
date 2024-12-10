@@ -1,6 +1,7 @@
 package com.example.androidappdemo.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -61,6 +62,7 @@ class RecycleViewActivity: ComponentActivity() {
         var data = mutableListOf<Pair<String, Int>>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
+            Log.d("DEBUG", "onCreateViewHolder...")
             val view = LayoutInflater.from(parent.context).inflate(R.layout.row_view, parent, false)
             return CustomViewHolder(view)
         }

@@ -18,26 +18,33 @@ import com.example.androidappdemo.utils.getRandomString
 class ListViewDemoActivity: ComponentActivity() {
     private lateinit var listView: ListView
     private var data = mutableListOf<Pair<String, Int?>>()
+    private lateinit var images: List<Int>
+    private lateinit var adapter: BaseAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listview_demo)
+
+        images = Utils.getImageLiusisi(this)
         listView = findViewById(R.id.listview)
         findViewById<Button>(R.id.btnAdd)?.setOnClickListener {
-            data.add(0, Pair(10.getRandomString(), null))
+            data.add(0, Pair(10.getRandomString(), images.random()))
+            adapter.notifyDataSetChanged()
         }
         findViewById<Button>(R.id.btnRemove)?.setOnClickListener {
+            if (data.isEmpty()) return@setOnClickListener
             data.removeAt(data.lastIndex)
+            adapter.notifyDataSetChanged()
         }
         findViewById<Button>(R.id.btnClear)?.setOnClickListener {
             data.clear()
+            adapter.notifyDataSetChanged()
         }
 
-        val liusisi = Utils.getImageLiusisi(this)
-        for (i in 0..100) {
-            data.add(0, Pair(10.getRandomString(space = true), liusisi.random()))
+        for (i in 0..10) {
+            data.add(0, Pair(10.getRandomString(space = true), images.random()))
         }
 
-        listView.adapter = object : BaseAdapter() {
+        adapter = object : BaseAdapter() {
             override fun getCount(): Int {
                 return data.count()
             }
@@ -78,5 +85,7 @@ class ListViewDemoActivity: ComponentActivity() {
                 }
             }
         }
+
+        listView.adapter = adapter
     }
 }
