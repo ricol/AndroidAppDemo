@@ -1,5 +1,7 @@
 package com.example.androidappdemo.utils
 
+import android.content.Context
+import android.media.Image
 import android.util.Log
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -10,6 +12,13 @@ class Utils {
             if (AppConstants.tagVisibleMapping[tag] == true) {
                 Log.d(tag, "[${Thread.currentThread()}] $msg")
             }
+        }
+        fun getImageLiusisi(ctx: Context): MutableList<Int> {
+            val image = mutableListOf<Int>()
+            for (i in 1..6) {
+                image.add(ctx.resources.getIdentifier("liusisi${i}", "drawable", ctx.packageName))
+            }
+            return image
         }
     }
 }

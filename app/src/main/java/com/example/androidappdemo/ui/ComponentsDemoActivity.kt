@@ -42,8 +42,8 @@ class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
 }
 
 class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
-    lateinit var rootView: View
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private lateinit var rootView: View
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val layout = LinearLayout(this.requireContext())
         layout.orientation = LinearLayout.VERTICAL
         val btnDatePicker = Button(this.requireContext())
