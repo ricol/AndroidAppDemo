@@ -52,6 +52,9 @@ class UIDemoActivity: ComponentActivity() {
         findViewById<Button>(R.id.btnUIControls)?.setOnClickListener {
             startActivity(Intent(this, UIControlsDemoActivity::class.java))
         }
+        findViewById<Button>(R.id.btnLayout)?.setOnClickListener {
+            startActivity(Intent(this, LayoutDemoActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
