@@ -44,6 +44,7 @@
         <activity android:name=".storage.StorageDemoActivity" />
         <activity android:name=".concurrency.ThreadDemoActivity" />
         <activity android:name=".ui.ListViewDemoActivity" />
+        <activity android:name=".ui.UIControlsDemoActivity" />
     </application>
 
 </manifest>

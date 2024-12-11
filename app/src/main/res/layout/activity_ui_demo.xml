@@ -81,4 +81,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ToolBar" />
+
+    <Button
+        android:id="@+id/btnUIControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UI Controls" />
 </LinearLayout>
