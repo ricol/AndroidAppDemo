@@ -45,7 +45,8 @@
         <activity android:name=".ui.LayoutDemoActivity" />
         <activity android:name=".ui.TabbarDemoActivity"
             android:theme="@style/Theme.AppCompat" />
-        <activity android:name=".ui.ViewPageDemoActivity" />
+        <activity android:name=".ui.ViewPageDemoActivity"
+            android:theme="@style/Theme.AppCompat" />
     </application>
 
 </manifest>

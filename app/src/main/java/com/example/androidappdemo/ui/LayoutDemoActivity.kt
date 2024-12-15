@@ -49,11 +49,31 @@ class LayoutDemoActivity: ComponentActivity() {
         layout.addView(btnTabbarWithTabItemLayout)
 
         val btnViewPage = Button(this)
-        btnViewPage.text = "View Page"
+        btnViewPage.text = "View Page For Custom Data"
         btnViewPage.setOnClickListener {
             startActivity(Intent(this, ViewPageDemoActivity::class.java))
         }
         layout.addView(btnViewPage)
+
+        val btnViewPageForFragment = Button(this)
+        btnViewPageForFragment.text = "View Page For Fragment"
+        btnViewPageForFragment.setOnClickListener {
+            startActivity(Intent(this, ViewPageDemoActivity::class.java).apply {
+                putExtra("fragment", true)
+            })
+        }
+        layout.addView(btnViewPageForFragment)
+
+        val btnViewPageWithTabbar = Button(this)
+        btnViewPageWithTabbar.text = "View Page With Tabbar"
+        btnViewPageWithTabbar.setOnClickListener {
+            startActivity(Intent(this, ViewPageDemoActivity::class.java).apply {
+                putExtra("tabbar", true)
+                putExtra("fragment", true)
+            })
+        }
+        layout.addView(btnViewPageWithTabbar)
+
         setContentView(layout)
     }
 }
