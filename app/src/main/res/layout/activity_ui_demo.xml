@@ -4,93 +4,105 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnStyle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Style" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnTheme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Theme" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/btnAnimation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Animation" />
+            <Button
+                android:id="@+id/btnStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Style" />
 
-    <Button
-        android:id="@+id/btnCustomDrawing"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CustomDrawing" />
+            <Button
+                android:id="@+id/btnTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Theme" />
 
-    <Button
-        android:id="@+id/btnLaunchActivityWithParams"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Activity With Params" />
+            <Button
+                android:id="@+id/btnAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Animation" />
 
-    <Button
-        android:id="@+id/btnLaunchActivityForResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Activity with result" />
+            <Button
+                android:id="@+id/btnCustomDrawing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CustomDrawing" />
 
-    <Button
-        android:id="@+id/btnFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fragments" />
+            <Button
+                android:id="@+id/btnLaunchActivityWithParams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity With Params" />
 
-    <Button
-        android:id="@+id/btnFragmentCallback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fragment with callback" />
+            <Button
+                android:id="@+id/btnLaunchActivityForResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity with result" />
 
-    <Button
-        android:id="@+id/btnRecycleView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="RecyclerView" />
+            <Button
+                android:id="@+id/btnFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragments" />
 
-    <Button
-        android:id="@+id/btnListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ListView" />
+            <Button
+                android:id="@+id/btnFragmentCallback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragment with callback" />
 
-    <Button
-        android:id="@+id/btnComponents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Components" />
+            <Button
+                android:id="@+id/btnRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RecyclerView" />
 
-    <Button
-        android:id="@+id/btnMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Menu" />
+            <Button
+                android:id="@+id/btnListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ListView" />
 
-    <Button
-        android:id="@+id/btnToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ToolBar" />
+            <Button
+                android:id="@+id/btnComponents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Components" />
 
-    <Button
-        android:id="@+id/btnUIControls"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="UI Controls" />
+            <Button
+                android:id="@+id/btnMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Menu" />
 
-    <Button
-        android:id="@+id/btnLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Layout" />
+            <Button
+                android:id="@+id/btnToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToolBar" />
+
+            <Button
+                android:id="@+id/btnUIControls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UI Controls" />
+
+            <Button
+                android:id="@+id/btnLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Layout" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

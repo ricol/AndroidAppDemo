@@ -16,11 +16,9 @@
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AndroidAppDemo">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,8 +30,7 @@
         <activity android:name=".ui.ComponentsDemoActivity" />
         <activity android:name=".ui.MenuDemoActivity" />
         <activity android:name=".ui.ToolbarDemoActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".ui.LoadAnimationDemoActivity" />
         <activity android:name=".notification.NotificationDemoActivity" />
         <activity android:name=".ui.AnimationListActivity" />
@@ -46,6 +43,9 @@
         <activity android:name=".ui.ListViewDemoActivity" />
         <activity android:name=".ui.UIControlsDemoActivity" />
         <activity android:name=".ui.LayoutDemoActivity" />
+        <activity android:name=".ui.TabbarDemoActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity android:name=".ui.ViewPageDemoActivity" />
     </application>
 
 </manifest>
