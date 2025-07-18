@@ -74,6 +74,13 @@ class LayoutDemoActivity: ComponentActivity() {
         }
         layout.addView(btnViewPageWithTabbar)
 
+        val btnCustomLayout = Button(this)
+        btnCustomLayout.text = "Custom Layout"
+        btnCustomLayout.setOnClickListener {
+            startActivity(Intent(this, CustomLayoutActivity::class.java))
+        }
+        layout.addView(btnCustomLayout)
+
         setContentView(layout)
     }
 }
