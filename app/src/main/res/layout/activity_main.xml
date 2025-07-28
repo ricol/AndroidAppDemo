@@ -44,6 +44,12 @@
                 android:text="Multi Thread" />
 
             <Button
+                android:id="@+id/btnDataProcess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data Process" />
+
+            <Button
                 android:id="@+id/btnTest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
