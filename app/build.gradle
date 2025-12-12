@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.example.androidappdemo'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.example.androidappdemo"
@@ -34,6 +34,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
+        buildConfig true
         compose true
     }
     composeOptions {
@@ -42,6 +43,24 @@ android {
     packaging {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    flavorDimensions 'product'
+    productFlavors {
+        MainApp {
+            dimension 'product'
+            applicationId 'com.mainapp'
+            versionName 'MainApp'
+        }
+        App1 {
+            dimension 'product'
+            applicationId 'com.app1'
+            versionName 'App1'
+        }
+        App2 {
+            dimension 'product'
+            applicationId 'com.app2'
+            versionName 'App2'
         }
     }
 }
@@ -64,6 +83,7 @@ dependencies {
     implementation libs.retrofit
     implementation libs.converter.scalars.v2110
     implementation 'com.google.code.gson:gson:2.11.0'
+    implementation libs.androidx.activity
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
