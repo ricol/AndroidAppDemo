@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.controls
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.example.androidappdemo.R
 
-class UIControlsDemoActivity: ComponentActivity() {
+class UIControlsDemoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ui_controls_demo)

@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.animations
 
 import android.animation.AnimatorSet
 import android.animation.ArgbEvaluator
@@ -10,36 +10,26 @@ import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.example.androidappdemo.R
 import com.example.androidappdemo.base.DefaultComponentBaseActivity
+import com.example.androidappdemo.ui.base.BaseListActivity
+import com.example.androidappdemo.ui.base.ListCommand
 
-class AnimationListActivity: DefaultComponentBaseActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val layout = LinearLayout(this)
-        val btnPropertyAnimation = Button(this)
-        btnPropertyAnimation.text = "Property Animation"
-        btnPropertyAnimation.setOnClickListener {
+class AnimationListActivity : BaseListActivity() {
+    override fun getCommand(): Array<ListCommand> {
+        return arrayOf(ListCommand("Property Animation") {
             startActivity(Intent(this, PropertyAnimationActivity::class.java))
-        }
-        layout.addView(btnPropertyAnimation)
-        val btnShakeAnimation = Button(this)
-        btnShakeAnimation.text = "Shake Animation"
-        layout.addView(btnShakeAnimation)
-        btnShakeAnimation.setOnClickListener {
+        }, ListCommand("Shake Animation") {
             startActivity(Intent(this, LoadAnimationDemoActivity::class.java))
-        }
-        setContentView(layout)
+        })
     }
 }
 
-class PropertyAnimationActivity: ComponentActivity() {
+class PropertyAnimationActivity : ComponentActivity() {
     private lateinit var sceneView: View
     private lateinit var sunView: View
     private lateinit var skyView: View
@@ -74,7 +64,7 @@ class PropertyAnimationActivity: ComponentActivity() {
     private val nightskyColor: Int by lazy { ContextCompat.getColor(this, R.color.night_sky) }
 }
 
-class LoadAnimationDemoActivity: DefaultComponentBaseActivity() {
+class LoadAnimationDemoActivity : DefaultComponentBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load_animation)

@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.androidappdemo.utils.AppConstants
 import com.example.androidappdemo.utils.Utils
 
-class DefaultAppCompactBaseActivity: AppCompatActivity() {
+class DefaultAppCompactBaseActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         Utils.output(AppConstants.TagLifeCycle, "$this.onCreateOptionsMenu...")
         return super.onCreateOptionsMenu(menu)

@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.toolbar
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.androidappdemo.R
 
-class ToolbarDemoActivity: AppCompatActivity() {
+class ToolbarDemoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toolbar_demo)
@@ -32,7 +32,7 @@ class ToolbarDemoActivity: AppCompatActivity() {
     }
 }
 
-class ToolbarFragment: Fragment() {
+class ToolbarFragment : Fragment() {
     var message: String? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val textView = TextView(this.context)

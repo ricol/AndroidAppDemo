@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import com.example.androidappdemo.utils.AppConstants
 import com.example.androidappdemo.utils.Utils
 
-open class DefaultBaseFragment: Fragment() {
+open class DefaultBaseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Utils.output(AppConstants.TagLifeCycle, "$this.onCreate...")

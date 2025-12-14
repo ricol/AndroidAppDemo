@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.controls
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
@@ -21,7 +21,7 @@ import androidx.fragment.app.FragmentContainerView
 import com.example.androidappdemo.R
 import java.util.Calendar
 
-class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
+class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
     interface DatePickerFragmentDelegate {
         fun onDateSelected(year: Int, monthOfYear: Int, dayOfMonth: Int)
     }
@@ -41,7 +41,7 @@ class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
     }
 }
 
-class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
+class ChildFragment : Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
     private lateinit var rootView: View
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val layout = LinearLayout(this.requireContext())
@@ -61,7 +61,7 @@ class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
             val builder = AlertDialog.Builder(this.context)
             builder.setMessage("Welcome to Android world!")
             builder.setTitle("Alert Dialog")
-            builder.setPositiveButton("OK") {_, _ ->
+            builder.setPositiveButton("OK") { _, _ ->
                 Toast.makeText(this.requireContext(), "Pressed OK", Toast.LENGTH_SHORT).show()
             }
             builder.setNegativeButton("Cancel") { _, _ ->
@@ -106,7 +106,7 @@ class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
                         Log.d(TAG, "${Thread.currentThread()} 4...")
                     }
                     Thread.sleep(1000)
-                }catch (e: Exception) {
+                } catch (e: Exception) {
                     Log.d(TAG, "exception: $e")
                 }
                 requireActivity().runOnUiThread {
@@ -138,7 +138,7 @@ class ChildFragment: Fragment(), DatePickerFragment.DatePickerFragmentDelegate {
     }
 }
 
-class ComponentsDemoActivity: FragmentActivity() {
+class ComponentsDemoActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layout = FragmentContainerView(this)

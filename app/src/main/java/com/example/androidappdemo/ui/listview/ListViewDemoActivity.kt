@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.listview
 
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +15,7 @@ import com.example.androidappdemo.R
 import com.example.androidappdemo.utils.Utils
 import com.example.androidappdemo.utils.getRandomString
 
-class ListViewDemoActivity: ComponentActivity() {
+class ListViewDemoActivity : ComponentActivity() {
     private lateinit var listView: ListView
     private var data = mutableListOf<Pair<String, Int?>>()
     private lateinit var images: List<Int>
@@ -62,7 +62,7 @@ class ListViewDemoActivity: ComponentActivity() {
                 if (convertView is PlaceHolderView) {
                     v = convertView
                     Log.d("DEBUG", "reusing convertView...")
-                }else {
+                } else {
                     v = PlaceHolderView()
                     Log.d("DEBUG", "creating PlaceHolderView...")
                 }
@@ -71,7 +71,7 @@ class ListViewDemoActivity: ComponentActivity() {
                 return v
             }
 
-            inner class PlaceHolderView: LinearLayout(this@ListViewDemoActivity) {
+            inner class PlaceHolderView : LinearLayout(this@ListViewDemoActivity) {
                 var imageView: ImageView
                 var textView: TextView
 

@@ -12,7 +12,7 @@ import com.example.androidappdemo.R
 import com.example.androidappdemo.base.DefaultComponentBaseActivity
 import java.lang.Thread.sleep
 
-class HandlerDemoActivity: DefaultComponentBaseActivity() {
+class HandlerDemoActivity : DefaultComponentBaseActivity() {
     private val handler = MyHandler()
     private var otherThread: MyThreadWithLooper? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +68,7 @@ class HandlerDemoActivity: DefaultComponentBaseActivity() {
         }
     }
 
-    class MyHandler: Handler() {
+    class MyHandler : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             Log.d(TAG, "[${Thread.currentThread()}] ${this} handle message: ${msg.data.getString("message")}")
@@ -76,7 +76,7 @@ class HandlerDemoActivity: DefaultComponentBaseActivity() {
     }
 }
 
-class MyThread1(private val handler: Handler): Thread() {
+class MyThread1(private val handler: Handler) : Thread() {
     override fun run() {
         super.run()
         Log.d(TAG, "[${currentThread()}]${this}...and sleeping...")
@@ -91,7 +91,7 @@ class MyThread1(private val handler: Handler): Thread() {
     }
 }
 
-class MyThread2(private val handler: Handler): Thread() {
+class MyThread2(private val handler: Handler) : Thread() {
     override fun run() {
         super.run()
         Log.d(TAG, "[${currentThread()}]${this}...and sleeping...")
@@ -103,7 +103,7 @@ class MyThread2(private val handler: Handler): Thread() {
     }
 }
 
-class MyThreadWithLooper: Thread() {
+class MyThreadWithLooper : Thread() {
     var myThreadHandler: Handler? = null
     override fun run() {
         super.run()
@@ -117,7 +117,7 @@ class MyThreadWithLooper: Thread() {
         Log.d(TAG, "[${currentThread()}]${this}...after looper.loop.")
     }
 
-    class MyHandler: Handler() {
+    class MyHandler : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             Log.d(TAG, "[${currentThread()}]${this}...handle message: ${msg.data.getString("message")}")

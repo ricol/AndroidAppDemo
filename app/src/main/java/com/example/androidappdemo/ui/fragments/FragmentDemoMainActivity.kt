@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.fragments
 
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -50,12 +50,8 @@ class FragmentDemoMainActivity : DefaultFragmentBaseActivity(), CallBackFragment
             val args = Bundle().apply {
                 putString("message", "this is message from the activity")
             }
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragmentContainer,
-                    CallBackFragment()
-                        .apply { title = "Call callback"; arguments = args }
-                ).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, CallBackFragment().apply { title = "Call callback"; arguments = args })
+                .commit()
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.recycleview
 
 import android.os.Bundle
 import android.util.Log
@@ -16,7 +16,7 @@ import com.example.androidappdemo.utils.Utils
 import com.example.androidappdemo.utils.getRandomString
 import java.util.Locale
 
-class RecycleViewActivity: ComponentActivity() {
+class RecycleViewActivity : ComponentActivity() {
     lateinit var recycleView: RecyclerView
     lateinit var btnAdd: Button
     lateinit var btnDelete: Button
@@ -31,7 +31,7 @@ class RecycleViewActivity: ComponentActivity() {
         btnDelete = findViewById(R.id.btnDelete)
         btnClear = findViewById(R.id.btnClear)
         btnAdd.setOnClickListener {
-            val images = Utils.getImageLiusisi(this)
+            val images = Utils.Companion.getImageLiusisi(this)
             adapter.data.add(Pair(10.getRandomString(), images.random()))
             adapter.notifyItemInserted(adapter.data.count() - 1)
         }
@@ -48,17 +48,17 @@ class RecycleViewActivity: ComponentActivity() {
         recycleView.adapter = adapter
         recycleView.layoutManager = LinearLayoutManager(this)
         for (i in 0..10) {
-            val images = Utils.getImageLiusisi(this)
+            val images = Utils.Companion.getImageLiusisi(this)
             adapter.data.add(Pair(10.getRandomString(), images.random()))
         }
     }
 
-    class CustomViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class CustomViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvView: TextView = view.findViewById(R.id.textView)
         val imageView: ImageView = view.findViewById(R.id.imageView)
     }
 
-    class CustomRecycleViewAdapter: RecyclerView.Adapter<CustomViewHolder>() {
+    class CustomRecycleViewAdapter : RecyclerView.Adapter<CustomViewHolder>() {
         var data = mutableListOf<Pair<String, Int>>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {

@@ -15,7 +15,7 @@ import com.example.androidappdemo.ui.UIDemoActivity
 import org.json.JSONException
 import org.json.JSONObject
 
-class MainActivity : ComponentActivity() {
+open class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

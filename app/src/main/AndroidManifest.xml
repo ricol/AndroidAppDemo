@@ -14,32 +14,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAppDemo"
         tools:targetApi="31">
-        <activity android:name=".ui.PropertyAnimationActivity" />
-        <activity android:name=".ui.CustomDrawingActivity" />
-        <activity android:name=".ui.FragmentDemoMainActivity" />
-        <activity android:name=".ui.RecycleViewActivity" />
+        <activity android:name=".ui.animations.PropertyAnimationActivity" />
+        <activity android:name=".ui.graphics.CustomDrawingActivity" />
+        <activity android:name=".ui.fragments.FragmentDemoMainActivity" />
+        <activity android:name=".ui.recycleview.RecycleViewActivity" />
         <activity android:name=".ui.DetailsActivity" />
-        <activity android:name=".ui.ComponentsDemoActivity" />
-        <activity android:name=".ui.MenuDemoActivity" />
-        <activity android:name=".ui.ToolbarDemoActivity"
+        <activity android:name=".ui.controls.ComponentsDemoActivity" />
+        <activity android:name=".ui.menu.MenuDemoActivity" />
+        <activity android:name=".ui.toolbar.ToolbarDemoActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".ui.LoadAnimationDemoActivity" />
+        <activity android:name=".ui.animations.LoadAnimationDemoActivity" />
         <activity android:name=".notification.NotificationDemoActivity" />
-        <activity android:name=".ui.AnimationListActivity" />
+        <activity android:name=".ui.animations.AnimationListActivity" />
         <activity android:name=".concurrency.HandlerDemoActivity" />
-        <activity android:name=".ui.StyleDemoActivity" />
+        <activity android:name=".ui.style.StyleDemoActivity" />
         <activity android:name=".ui.UIDemoActivity" />
         <activity android:name=".network.NetworkActivity" />
         <activity android:name=".storage.StorageDemoActivity" />
         <activity android:name=".concurrency.ThreadDemoActivity" />
-        <activity android:name=".ui.ListViewDemoActivity" />
-        <activity android:name=".ui.UIControlsDemoActivity" />
-        <activity android:name=".ui.LayoutDemoActivity" />
-        <activity android:name=".ui.TabbarDemoActivity"
+        <activity android:name=".ui.listview.ListViewDemoActivity" />
+        <activity android:name=".ui.controls.UIControlsDemoActivity" />
+        <activity android:name=".ui.layout.LayoutDemoActivity" />
+        <activity android:name=".ui.tabbar.TabbarDemoActivity"
             android:theme="@style/Theme.AppCompat" />
-        <activity android:name=".ui.ViewPageDemoActivity"
+        <activity android:name=".ui.viewPager.ViewPagerDemo1Activity"
             android:theme="@style/Theme.AppCompat" />
-        <activity android:name=".ui.CustomLayoutActivity" />
+        <activity android:name=".ui.layout.CustomLayoutActivity" />
+        <activity android:name=".ui.viewPager.ViewPagerDemo2Activity" android:theme="@style/Theme.AppCompat" />
+        <activity android:name=".ui.viewPager.ViewPagerListViewActivity" />
+        <activity android:name=".ui.tabbar.TabBarListDemoActivity" />
     </application>
 
 </manifest>

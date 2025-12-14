@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.graphics
 
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -171,8 +171,7 @@ class CustomDrawingActivity : DefaultComponentBaseActivity() {
             canvas.drawPaint(backgroundPaint)
             if (clearCanvas) {
                 clearCanvas = false; return
-            }
-            //box
+            } //box
             viewModel?.boxen?.forEach { box ->
                 canvas.drawRect(box.left, box.top, box.right, box.bottom, boxPaint)
             }
@@ -188,8 +187,7 @@ class CustomDrawingActivity : DefaultComponentBaseActivity() {
                 if (currentPoint != null) {
                     canvas.drawLine(from.x, from.y, currentPoint!!.x, currentPoint!!.y, currentLinePaint)
                 }
-            }
-            //freedraw
+            } //freedraw
             viewModel?.freeDrawSegments?.forEach { segment ->
                 if (segment.points.isNotEmpty()) {
                     var from = segment.points.first()

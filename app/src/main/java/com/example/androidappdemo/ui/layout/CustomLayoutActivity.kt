@@ -1,10 +1,10 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.layout
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.example.androidappdemo.R
 
-class CustomLayoutActivity: ComponentActivity() {
+class CustomLayoutActivity : ComponentActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         setContentView(R.layout.activity_layout_demo)

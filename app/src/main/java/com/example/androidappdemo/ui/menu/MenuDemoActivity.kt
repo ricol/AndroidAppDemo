@@ -1,4 +1,4 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.menu
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.example.androidappdemo.R
 
-class ChildMenuFragment: Fragment(), PopupMenu.OnMenuItemClickListener {
+class ChildMenuFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
     var menuToLoad: Int? = null
         set(value) {
             Log.d(TAG, "$this setMenuToLoad...$value")
@@ -64,16 +64,18 @@ class ChildMenuFragment: Fragment(), PopupMenu.OnMenuItemClickListener {
     }
 }
 
-class MenuDemoActivity: FragmentActivity() {
+class MenuDemoActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_demo)
         findViewById<FrameLayout>(R.id.fragmentContainer)?.setBackgroundColor(getColor(R.color.bright_sun))
         findViewById<Button>(R.id.btnFragment1)?.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, ChildMenuFragment().apply { menuToLoad = R.menu.fragment_menu }, "fragment1").commit()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ChildMenuFragment().apply { menuToLoad = R.menu.fragment_menu }, "fragment1").commit()
         }
         findViewById<Button>(R.id.btnFragment2)?.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, ChildMenuFragment().apply { menuToLoad = R.menu.fragment_menu_details }, "fragment2").commit()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ChildMenuFragment().apply { menuToLoad = R.menu.fragment_menu_details }, "fragment2").commit()
         }
         findViewById<Button>(R.id.btnClear)?.setOnClickListener {
             supportFragmentManager.findFragmentById(R.id.fragmentContainer)?.apply {

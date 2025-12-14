@@ -1,11 +1,11 @@
-package com.example.androidappdemo.ui
+package com.example.androidappdemo.ui.style
 
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
 import com.example.androidappdemo.R
 
-class StyleDemoActivity: ComponentActivity() {
+class StyleDemoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_style_demo)

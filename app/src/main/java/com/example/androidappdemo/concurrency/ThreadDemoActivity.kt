@@ -12,7 +12,7 @@ import com.example.androidappdemo.R
 import com.example.androidappdemo.utils.Utils
 import java.util.concurrent.Executors
 
-class ThreadDemoActivity: ComponentActivity() {
+class ThreadDemoActivity : ComponentActivity() {
     private lateinit var tvLogs: TextView
     private val handler = Handler()
 
@@ -92,7 +92,7 @@ class ThreadDemoActivity: ComponentActivity() {
         wakeup(gotoSleep(n))
     }
 
-    class MyAsyncTask(val tvOutput: TextView, val handle: Handler): AsyncTask<String, Int, String>() {
+    class MyAsyncTask(val tvOutput: TextView, val handle: Handler) : AsyncTask<String, Int, String>() {
 
         override fun onPreExecute() {
             super.onPreExecute()

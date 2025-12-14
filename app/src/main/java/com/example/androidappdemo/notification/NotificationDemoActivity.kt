@@ -6,34 +6,38 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import android.widget.Button
-//import com.example.androidappdemo.MainActivity
+import com.example.androidappdemo.MainActivity
 import com.example.androidappdemo.R
-import com.example.androidappdemo.base.DefaultComponentBaseActivity
+import com.example.androidappdemo.ui.base.BaseListActivity
+import com.example.androidappdemo.ui.base.ListCommand
 
-class NotificationDemoActivity : DefaultComponentBaseActivity() {
-    val channel_name = "mynotificationchannel"
-    val channel_desc = "this is my local notification channel"
-    val channel_id = "mynotificationchannel"
+class NotificationDemoActivity : BaseListActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notification_demo)
-        createNotificationChannel()
-        findViewById<Button>(R.id.btnSend)?.setOnClickListener {
+    override fun getCommand(): Array<ListCommand> {
+
+        return arrayOf(ListCommand("Send local notification") {
             val notification =
                 Notification.Builder(this, channel_id).setContentTitle("Notif Title").setContentText("this is notification").setSmallIcon(R.drawable.moon)
                     .build()
-//            val intent = Intent(this, MainActivity::class.java).apply {
-//                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            }
-//            val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
-//            notification.contentIntent = pendingIntent
-//            val mgr = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//            mgr.notify(1, notification)
-        }
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
+            notification.contentIntent = pendingIntent
+            val mgr = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            mgr.notify(1, notification)
+        }, ListCommand("Clear local notifications") {
+
+        })
     }
+
+    override fun afterView() {
+        createNotificationChannel()
+    }
+
+    val channel_name = "mynotificationchannel"
+    val channel_desc = "this is my local notification channel"
+    val channel_id = "mynotificationchannel"
 
     private fun createNotificationChannel() { // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is not in the Support Library.

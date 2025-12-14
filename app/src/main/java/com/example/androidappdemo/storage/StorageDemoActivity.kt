@@ -1,6 +1,5 @@
 package com.example.androidappdemo.storage
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -8,7 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.core.content.edit
 import com.example.androidappdemo.R
 
-class StorageDemoActivity: ComponentActivity() {
+class StorageDemoActivity : ComponentActivity() {
     private val sharedPreferenceName = "MySharedPreference"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

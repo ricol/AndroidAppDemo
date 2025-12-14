@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentActivity
 import com.example.androidappdemo.utils.AppConstants
 import com.example.androidappdemo.utils.Utils
 
-open class DefaultFragmentBaseActivity: FragmentActivity() {
+open class DefaultFragmentBaseActivity : FragmentActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         Utils.output(AppConstants.TagLifeCycle, "$this.onCreateOptionsMenu...")
         return super.onCreateOptionsMenu(menu)
