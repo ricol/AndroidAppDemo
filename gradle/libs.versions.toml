@@ -1,8 +1,7 @@
 [versions]
-agp = "8.13.2"
-converterScalars = "2.5.0"
-converterScalarsVersion = "2.11.0"
+agp = "9.0.0-beta05"
 kotlin = "1.9.0"
+compose = "2.3.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -23,8 +22,8 @@ activity = "1.12.1"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-extensions = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "lifecycleExtensions" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson" }
-converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterScalars" }
-converter-scalars-v2110 = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterScalarsVersion" }
+converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version = "2.5.0" }
+converter-scalars-v2110 = { module = "com.squareup.retrofit2:converter-scalars", version = "2.11.0" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -50,4 +49,5 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "compose" }
 
