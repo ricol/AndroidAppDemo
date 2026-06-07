@@ -10,6 +10,7 @@ import androidx.activity.ComponentActivity
 import com.example.androidappdemo.ui.animations.AnimationListActivity
 import com.example.androidappdemo.ui.base.BaseListActivity
 import com.example.androidappdemo.ui.base.ListCommand
+import com.example.androidappdemo.ui.compose.ComposeDemoActivity
 import com.example.androidappdemo.ui.controls.ComponentsDemoActivity
 import com.example.androidappdemo.ui.controls.UIControlsDemoActivity
 import com.example.androidappdemo.ui.fragments.FragmentDemoMainActivity
@@ -26,6 +27,9 @@ import com.example.androidappdemo.ui.viewPager.ViewPagerListViewActivity
 class UIDemoActivity : BaseListActivity() {
     override fun getCommand(): Array<ListCommand> {
         return arrayOf(
+            ListCommand("Jetpack Compose") {
+                startActivity(Intent(this, ComposeDemoActivity::class.java))
+            },
             ListCommand("Style") {
                 startActivity(Intent(this, StyleDemoActivity::class.java))
             },
